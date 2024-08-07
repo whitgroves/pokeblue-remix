@@ -127,7 +127,7 @@ MainMenu:
 InitOptions:
 	ld a, 1 << BIT_FAST_TEXT_DELAY
 	ld [wLetterPrintingDelayFlags], a
-	ld a, TEXT_DELAY_FAST ; default text speed
+	ld a, %01000001 ; default options byte -> animations on (0), style = SET (1), fast text (000001)
 	ld [wOptions], a
 	ret
 
@@ -649,7 +649,7 @@ SetCursorPositionsFromOptions:
 	ld hl, TextSpeedOptionData + 1
 	ld a, [wOptions]
 	ld c, a
-	and $3f
+	and $7f ; options mask -> %111111
 	push bc
 	ld de, 2
 	call IsInArray
@@ -659,18 +659,20 @@ SetCursorPositionsFromOptions:
 	ld [wOptionsTextSpeedCursorX], a ; text speed cursor X coordinate
 	hlcoord 0, 3
 	call .placeUnfilledRightArrow
-	sla c
+; start battle animation logic
+	sla c 	; if leftmost bit (animation flag) is 1, sets carry flag
 	ld a, 1 ; On
-	jr nc, .storeBattleAnimationCursorX
+	jr nc, .storeBattleAnimationCursorX ; no flag = use first option (On)
 	ld a, 10 ; Off
 .storeBattleAnimationCursorX
 	ld [wOptionsBattleAnimCursorX], a ; battle animation cursor X coordinate
 	hlcoord 0, 8
 	call .placeUnfilledRightArrow
-	sla c
-	ld a, 1
-	jr nc, .storeBattleStyleCursorX
-	ld a, 10
+; start battle style logic
+	sla c	; if leftmost bit (battle style flag) is 1, sets carry flag
+	ld a, 1 ; SHIFT
+	jr nc, .storeBattleStyleCursorX ; no flag = use first option (SHIFT)
+	ld a, 10 ; SET
 .storeBattleStyleCursorX
 	ld [wOptionsBattleStyleCursorX], a ; battle style cursor X coordinate
 	hlcoord 0, 13
@@ -693,7 +695,7 @@ TextSpeedOptionData:
 	db 14, TEXT_DELAY_SLOW
 	db  7, TEXT_DELAY_MEDIUM
 	db  1, TEXT_DELAY_FAST
-	db  7, -1 ; end (default X coordinate)
+	db  1, -1 ; end (default X coordinate)
 
 CheckForPlayerNameInSRAM:
 ; Check if the player name data in SRAM has a string terminator character
