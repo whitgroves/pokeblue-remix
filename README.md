@@ -6,7 +6,7 @@ The goal is not to reproduce or backport that project, but simply to breathe new
 
 To that end, it will include some updates from Yellow, Yellow Legacy, and the [pret tutorials](https://github.com/pret/pokered/wiki/Tutorials), but largely will try to keep its scope as narrow as possible.
 
-## Changes
+## Changes (✓ = done, no ✓ = in progress)
 - All 151 Pokemon are available on a single save, as is the custom.
 - Updated interactions for the original 15 types (i.e., no *Steel, Dark,* or *Fairy* backports)
 - Updated typing and learnsets to make certain Pokemon more lore-friendly and/or unique
@@ -15,10 +15,10 @@ To that end, it will include some updates from Yellow, Yellow Legacy, and the [p
 - Struggle, Self-Destruct, and Explosion are all "Typeless" (read: *Bird*-type)
 - Certain special moves are treated as physical (e.g., *Crabhammer, Thunderpunch*)
 - The Ghost type is special instead of physical
-- Greater availability of TMs
+- Greater availability of TMsx
 - HMs are no longer permanent
 - Auto-sort items using the Start button
-- Fast text speed and Set battles by default
+- Fast text speed and Set battles by default ✓
 - The "Down + B" trick actually works
 
 ## Why *Blue* Remix?
