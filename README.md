@@ -4,7 +4,7 @@ This is a Pokemon Blue romhack forked from [pret's disassembly of Pokémon Red a
 
 The goal is not to reproduce or backport that project, but simply to breathe new life into gen 1 for anyone who prefers Red/Blue over Yellow.
 
-To that end, it will include some updates from Yellow, Yellow Legacy, and the [pret tutorials](), but largely will try to keep its scope as narrow as possible.
+To that end, it will include some updates from Yellow, Yellow Legacy, and the [pret tutorials](https://github.com/pret/pokered/wiki/Tutorials), but largely will try to keep its scope as narrow as possible.
 
 ## Changes
 - All 151 Pokemon are available on a single save, as is the custom.
