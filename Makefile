@@ -1,9 +1,7 @@
 roms := \
-	pokered.gbc \
 	pokeblue.gbc \
 	pokeblue_debug.gbc
 patches := \
-	pokered.patch \
 	pokeblue.patch
 
 rom_obj := \
@@ -17,12 +15,10 @@ rom_obj := \
 	gfx/sprites.o \
 	gfx/tilesets.o
 
-pokered_obj        := $(rom_obj:.o=_red.o)
-pokeblue_obj       := $(rom_obj:.o=_blue.o)
-pokeblue_debug_obj := $(rom_obj:.o=_blue_debug.o)
-pokered_vc_obj     := $(rom_obj:.o=_red_vc.o)
-pokeblue_vc_obj    := $(rom_obj:.o=_blue_vc.o)
-
+# Do not rename! Script relies on these variable names matching the build file(s)
+pokeblue_obj		:= $(rom_obj:.o=_blue.o)
+pokeblue_debug_obj	:= $(rom_obj:.o=_blue_debug.o)
+pokeblue_vc_obj		:= $(rom_obj:.o=_blue_vc.o)
 
 ### Build tools
 
@@ -38,21 +34,17 @@ RGBFIX  ?= $(RGBDS)rgbfix
 RGBGFX  ?= $(RGBDS)rgbgfx
 RGBLINK ?= $(RGBDS)rgblink
 
-
 ### Build targets
 
 .SUFFIXES:
 .SECONDEXPANSION:
 .PRECIOUS:
 .SECONDARY:
-.PHONY: all red blue blue_debug clean tidy compare tools
+.PHONY: blue debug patch clean tidy compare tools test release
 
-all: $(roms)
-red:        pokered.gbc
-blue:       pokeblue.gbc
-blue_debug: pokeblue_debug.gbc
-red_vc:     pokered.patch
-blue_vc:    pokeblue.patch
+blue:	pokeblue.gbc
+debug: 	pokeblue_debug.gbc
+patch:	pokeblue.patch
 
 clean: tidy
 	find gfx \
@@ -65,16 +57,15 @@ tidy:
 	$(RM) $(roms) \
 	      $(roms:.gbc=.sym) \
 	      $(roms:.gbc=.map) \
+		  $(roms:.gbc=.sav) \
 	      $(patches) \
 	      $(patches:.patch=_vc.gbc) \
 	      $(patches:.patch=_vc.sym) \
 	      $(patches:.patch=_vc.map) \
 	      $(patches:%.patch=vc/%.constants.sym) \
-	      $(pokered_obj) \
 	      $(pokeblue_obj) \
-	      $(pokered_vc_obj) \
-	      $(pokeblue_vc_obj) \
 	      $(pokeblue_debug_obj) \
+	      $(pokeblue_vc_obj) \
 	      rgbdscheck.o
 	$(MAKE) clean -C tools/
 
@@ -84,6 +75,12 @@ compare: $(roms) $(patches)
 tools:
 	$(MAKE) -C tools/
 
+test: blue
+	mgba-qt pokeblue.gbc
+
+release: blue
+	mv pokeblue.gbc 'Pokemon - Blue Remix.gbc'
+	$(MAKE) clean
 
 RGBASMFLAGS = -Q8 -P includes.asm -Weverything -Wnumeric-string=2 -Wtruncation=1
 # Create a sym/map for debug purposes if `make` run with `DEBUG=1`
@@ -91,11 +88,9 @@ ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E
 endif
 
-$(pokered_obj):        RGBASMFLAGS += -D _RED
-$(pokeblue_obj):       RGBASMFLAGS += -D _BLUE
-$(pokeblue_debug_obj): RGBASMFLAGS += -D _BLUE -D _DEBUG
-$(pokered_vc_obj):     RGBASMFLAGS += -D _RED -D _RED_VC
-$(pokeblue_vc_obj):    RGBASMFLAGS += -D _BLUE -D _BLUE_VC
+$(pokeblue_obj):		RGBASMFLAGS += -D _BLUE
+$(pokeblue_debug_obj):	RGBASMFLAGS += -D _BLUE -D _DEBUG
+$(pokeblue_vc_obj):		RGBASMFLAGS += -D _BLUE -D _BLUE_VC
 
 %.patch: vc/%.constants.sym %_vc.gbc %.gbc vc/%.patch.template
 	tools/make_patch $*_vc.sym $^ $@
@@ -119,10 +114,8 @@ $1: $2 $$(shell tools/scan_includes $2) $(preinclude_deps) | rgbdscheck.o
 endef
 
 # Dependencies for objects (drop _red and _blue from asm file basenames)
-$(foreach obj, $(pokered_obj), $(eval $(call DEP,$(obj),$(obj:_red.o=.asm))))
 $(foreach obj, $(pokeblue_obj), $(eval $(call DEP,$(obj),$(obj:_blue.o=.asm))))
 $(foreach obj, $(pokeblue_debug_obj), $(eval $(call DEP,$(obj),$(obj:_blue_debug.o=.asm))))
-$(foreach obj, $(pokered_vc_obj), $(eval $(call DEP,$(obj),$(obj:_red_vc.o=.asm))))
 $(foreach obj, $(pokeblue_vc_obj), $(eval $(call DEP,$(obj),$(obj:_blue_vc.o=.asm))))
 
 # Dependencies for VC files that need to run scan_includes
@@ -131,51 +124,45 @@ $(foreach obj, $(pokeblue_vc_obj), $(eval $(call DEP,$(obj),$(obj:_blue_vc.o=.as
 
 endif
 
-
 %.asm: ;
 
-
-pokered_pad        = 0x00
+# Do not rename! Script relies on these variable names matching the build file(s)
 pokeblue_pad       = 0x00
-pokered_vc_pad     = 0x00
 pokeblue_vc_pad    = 0x00
 pokeblue_debug_pad = 0xff
 
-pokered_opt        = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
 pokeblue_opt       = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
 pokeblue_debug_opt = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
-pokered_vc_opt     = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
 pokeblue_vc_opt    = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) -p $($*_pad) -d -m $*.map -n $*.sym -l layout.link -o $@ $(filter %.o,$^)
 	$(RGBFIX) -p $($*_pad) $($*_opt) $@
 
-
 ### Misc file-specific graphics rules
 
 gfx/battle/move_anim_0.2bpp: tools/gfx += --trim-whitespace
 gfx/battle/move_anim_1.2bpp: tools/gfx += --trim-whitespace
 
+## TODO --> swap later
 gfx/intro/blue_jigglypuff_1.2bpp: rgbgfx += -Z
 gfx/intro/blue_jigglypuff_2.2bpp: rgbgfx += -Z
 gfx/intro/blue_jigglypuff_3.2bpp: rgbgfx += -Z
-gfx/intro/red_nidorino_1.2bpp: rgbgfx += -Z
-gfx/intro/red_nidorino_2.2bpp: rgbgfx += -Z
-gfx/intro/red_nidorino_3.2bpp: rgbgfx += -Z
+# gfx/intro/red_nidorino_1.2bpp: rgbgfx += -Z
+# gfx/intro/red_nidorino_2.2bpp: rgbgfx += -Z
+# gfx/intro/red_nidorino_3.2bpp: rgbgfx += -Z
 gfx/intro/gengar.2bpp: rgbgfx += -Z
 gfx/intro/gengar.2bpp: tools/gfx += --remove-duplicates --preserve=0x19,0x76
 
 gfx/credits/the_end.2bpp: tools/gfx += --interleave --png=$<
 
-gfx/slots/red_slots_1.2bpp: tools/gfx += --trim-whitespace
+# gfx/slots/red_slots_1.2bpp: tools/gfx += --trim-whitespace
 gfx/slots/blue_slots_1.2bpp: tools/gfx += --trim-whitespace
 
 gfx/tilesets/%.2bpp: tools/gfx += --trim-whitespace
 gfx/tilesets/reds_house.2bpp: tools/gfx += --preserve=0x48
 
 gfx/trade/game_boy.2bpp: tools/gfx += --remove-duplicates
-
 
 ### Catch-all graphics rules
 
