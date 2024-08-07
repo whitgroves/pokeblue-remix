@@ -12,7 +12,7 @@ To that end, it will include some updates from Yellow, Yellow Legacy, and the [p
 - Updated typing and learnsets to make certain Pokemon more lore-friendly and/or unique
 - Updated typing, power, accuracy, and effects to make certain moves more viable or less frustrating (e.g., *Tackle* has 100% accuracy)
 - Conversion of all trapping moves (e.g., *Wrap, Fire Spin*) to damaging moves with a secondary status effect
-- Struggle, Self-Destruct, and Explosion are all "Typeless" (read: *Bird*-type)
+- Struggle, Self-Destruct, and Explosion are all "None"-type (read: *Bird*-type) ✓
 - Certain special moves are treated as physical (e.g., *Crabhammer, Thunderpunch*)
 - The Ghost type is special instead of physical
 - Greater availability of TMsx
