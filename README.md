@@ -1,29 +1,25 @@
-# Pokémon Red and Blue [![Build Status][ci-badge]][ci]
+# Pokémon Blue Remix
 
-This is a disassembly of Pokémon Red and Blue.
+This is a Pokemon Blue romhack forked from [pret's disassembly of Pokémon Red and Blue](https://github.com/pret/pokered) and inspired by [TheSmithPlays' Yellow Legacy project](https://github.com/cRz-Shadows/Pokemon_Yellow_Legacy).
 
-It builds the following ROMs:
+The goal is not to reproduce or backport that project, but simply to breathe new life into gen 1 for anyone who prefers Red/Blue over Yellow.
 
-- Pokemon Red (UE) [S][!].gb `sha1: ea9bcae617fdf159b045185467ae58b2e4a48b9a`
-- Pokemon Blue (UE) [S][!].gb `sha1: d7037c83e1ae5b39bde3c30787637ba1d4c48ce2`
-- BLUEMONS.GB (debug build) `sha1: 5b1456177671b79b263c614ea0e7cc9ac542e9c4`
-- dmgapae0.e69.patch `sha1: 0fb5f743696adfe1dbb2e062111f08f9bc5a293a`
-- dmgapee0.e68.patch `sha1: ed4be94dc29c64271942c87f2157bca9ca1019c7`
+To that end, it will include some updates from Yellow, Yellow Legacy, and the [pret tutorials](), but largely will try to keep its scope as narrow as possible.
 
-To set up the repository, see [**INSTALL.md**](INSTALL.md).
+## Changes
+- All 151 Pokemon are available on a single save, as is the custom.
+- Updated interactions for the original 15 types (i.e., no *Steel, Dark,* or *Fairy* backports)
+- Updated typing and learnsets to make certain Pokemon more lore-friendly and/or unique
+- Updated typing, power, accuracy, and effects to make certain moves more viable or less frustrating (e.g., *Tackle* has 100% accuracy)
+- Conversion of all trapping moves (e.g., *Wrap, Fire Spin*) to damaging moves with a secondary status effect
+- Struggle, Self-Destruct, and Explosion are all "Typeless" (read: *Bird*-type)
+- Certain special moves are treated as physical (e.g., *Crabhammer, Thunderpunch*)
+- The Ghost type is special instead of physical
+- Greater availability of TMs
+- HMs are no longer permanent
+- Auto-sort items using the Start button
+- Fast text speed and Set battles by default
+- The "Down + B" trick actually works
 
-
-## See also
-
-- [**Wiki**][wiki] (includes [tutorials][tutorials])
-- [**Symbols**][symbols]
-
-You can find us on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
-
-For other pret projects, see [pret.github.io](https://pret.github.io/).
-
-[wiki]: https://github.com/pret/pokered/wiki
-[tutorials]: https://github.com/pret/pokered/wiki/Tutorials
-[symbols]: https://github.com/pret/pokered/tree/symbols
-[ci]: https://github.com/pret/pokered/actions
-[ci-badge]: https://github.com/pret/pokered/actions/workflows/main.yml/badge.svg
+## Why *Blue* Remix?
+While *Red Remix* does roll off the tongue, Pokemon Blue was the first Pokemon game I played and the first video game I bought for myself, so I chose that name for nostalgia's sake.
