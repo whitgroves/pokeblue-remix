@@ -80,7 +80,6 @@ test: blue
 
 release: blue
 	mv pokeblue.gbc 'Pokemon - Blue Remix.gbc'
-	$(MAKE) clean
 
 RGBASMFLAGS = -Q8 -P includes.asm -Weverything -Wnumeric-string=2 -Wtruncation=1
 # Create a sym/map for debug purposes if `make` run with `DEBUG=1`
