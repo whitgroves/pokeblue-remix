@@ -6,8 +6,8 @@ The goal is not to reproduce or backport that project, but to breathe new life i
 
 To that end, it will include some updates from Yellow, Yellow Legacy, and the [pret tutorials](https://github.com/pret/pokered/wiki/Tutorials), but largely will try to keep its scope as narrow as possible.
 
-## Changes (✓ = done, no ✓ = in progress)
-- Updated interactions for the original 15 types ([spreadsheet](TypeChart.xlsx))
+## Changes (✓ = done, ~ = in progress)
+- Updated interactions for the original 15 types ([spreadsheet](TypeChart.xlsx)) ~
 - Updated typing and learnsets to make certain Pokemon more lore-accurate or unique
 - Updated typing, power, accuracy, and effects to make certain moves more viable or less frustrating (e.g., *Tackle* has 100% accuracy)
 - Conversion of all trapping moves (e.g., *Wrap, Fire Spin*) to damaging moves with a secondary status effect
