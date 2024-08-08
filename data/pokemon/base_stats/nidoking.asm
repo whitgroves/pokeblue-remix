@@ -3,7 +3,7 @@
 	db  81,  92,  77,  85,  75
 	;   hp  atk  def  spd  spc
 
-	db POISON, GROUND ; type
+	db POISON, DRAGON ; type
 	db 45 ; catch rate
 	db 195 ; base exp
 
