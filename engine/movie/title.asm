@@ -117,12 +117,7 @@ DisplayTitleScreen:
 	call LoadScreenTilesFromBuffer2
 	call EnableLCD
 
-IF DEF(_RED)
-	ld a, STARTER1 ; which Pokemon to show first on the title screen
-ENDC
-IF DEF(_BLUE)
-	ld a, STARTER2 ; which Pokemon to show first on the title screen
-ENDC
+	ld a, PORYGON ; which Pokemon to show first on the title screen
 	ld [wTitleMonSpecies], a
 	call LoadTitleMonSprite
 
@@ -321,7 +316,7 @@ DrawPlayerCharacter:
 	xor a
 	ld [wPlayerCharacterOAMTile], a
 	ld hl, wShadowOAM
-	lb de, $60, $5a
+	lb de, $60, $60 ; player Y, X
 	ld b, 7
 .loop
 	push de
@@ -357,7 +352,7 @@ ClearBothBGMaps:
 LoadTitleMonSprite:
 	ld [wCurPartySpecies], a
 	ld [wd0b5], a
-	hlcoord 5, 10
+	hlcoord 4, 10 ; title mon X, Y
 	call GetMonHeader
 	jp LoadFrontSpriteByMonIndex
 
