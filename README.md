@@ -15,9 +15,10 @@ To that end, it will include some updates from Yellow, Yellow Legacy, and the [p
 - Struggle, Self-Destruct, and Explosion are all "None"-type (read: *Bird*-type) ✓
 - Certain special moves are treated as physical (e.g., *Crabhammer, Thunderpunch*)
 - The Ghost type is special instead of physical ✓
-- All 151 Pokemon available on a single save
+- All 151 Pokemon are available on a single save ~
 - Fast text speed and Set battles by default ✓
 - Miscellaneous bugixes (e.g., skipping moves on multi-level up) - *note that the 1/256 glitch is being left in for flavor*
+- The good rod is good and the super rod is super ✓
 - The "Down + B" trick actually works
 
 ## Why *Blue* Remix?
