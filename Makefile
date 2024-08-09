@@ -143,13 +143,9 @@ pokeblue_vc_opt    = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
 gfx/battle/move_anim_0.2bpp: tools/gfx += --trim-whitespace
 gfx/battle/move_anim_1.2bpp: tools/gfx += --trim-whitespace
 
-## TODO --> swap later
-gfx/intro/blue_jigglypuff_1.2bpp: rgbgfx += -Z
-gfx/intro/blue_jigglypuff_2.2bpp: rgbgfx += -Z
-gfx/intro/blue_jigglypuff_3.2bpp: rgbgfx += -Z
-# gfx/intro/red_nidorino_1.2bpp: rgbgfx += -Z
-# gfx/intro/red_nidorino_2.2bpp: rgbgfx += -Z
-# gfx/intro/red_nidorino_3.2bpp: rgbgfx += -Z
+gfx/intro/nidorino_1.2bpp: rgbgfx += -Z
+gfx/intro/nidorino_2.2bpp: rgbgfx += -Z
+gfx/intro/nidorino_3.2bpp: rgbgfx += -Z
 gfx/intro/gengar.2bpp: rgbgfx += -Z
 gfx/intro/gengar.2bpp: tools/gfx += --remove-duplicates --preserve=0x19,0x76
 
