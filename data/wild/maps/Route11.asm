@@ -8,7 +8,7 @@ Route11WildMons:
 	db 14, FARFETCHD
 	db 16, BEEDRILL
 	db 15, PONYTA
-	db 18, GROWLITHE
+	db 18, DODUO
 	db 17, TAUROS
 	end_grass_wildmons
 
