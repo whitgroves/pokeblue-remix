@@ -1,15 +1,15 @@
 PokemonTower7FWildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 21, GASTLY
 	db 22, GASTLY
 	db 23, GASTLY
 	db 24, GASTLY
-	db 20, GASTLY
+	db 26, CUBONE
+	db 25, DROWZEE
+	db 25, HAUNTER
+	db 24, KADABRA
+	db 28, HYPNO
 	db 28, HAUNTER
-	db 22, CUBONE
-	db 24, CUBONE
-	db 28, HAUNTER
-	db 30, HAUNTER
+	db 28, MAROWAK
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate
