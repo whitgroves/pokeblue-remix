@@ -8,8 +8,8 @@ Route17WildMons:
 	db 24, KOFFING
 	db 26, PIDGEOTTO
 	db 25, FEAROW
-	db 28, DODUO
-	db 31, DODRIO
+	db 28, BEEDRILL
+	db 31, BEEDRILL
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

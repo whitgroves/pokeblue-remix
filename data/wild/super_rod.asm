@@ -39,61 +39,61 @@ SuperRodData:
 ; fishing groups
 ; number of monsters, followed by level/monster pairs
 
-.Group1:
+.Group1: ; pallet, viridian
 	db 2
 	db 18, GOLDEEN
 	db 18, POLIWAG
 
-.Group2:
+.Group2: ; route 22
 	db 2
 	db 25, POLIWHIRL
 	db 15, POLIWAG
 
-.Group3:
+.Group3: ; cerulean city/gym, routes 4, 24, 25
 	db 3
 	db 18, SHELLDER
 	db 18, GOLDEEN
 	db 18, KRABBY
 
-.Group4:
+.Group4: ; vermilion, routes 6, 11
 	db 2
 	db 18, KRABBY
 	db 18, SHELLDER
 
-.Group5:
+.Group5: ; celadon, route 10
 	db 2
 	db 25, POLIWHIRL
 	db 18, SLOWPOKE
 
-.Group6:
+.Group6: ; safari zone
 	db 4
-	db 23, DRATINI
-	db 23, GYARADOS
-	db 23, HORSEA
-	db 23, LAPRAS
+	db 29, DRATINI
+	db 28, GYARADOS
+	db 30, HORSEA
+	db 27, LAPRAS
 
-.Group7:
+.Group7: ; routes 12, 13, 17, 18
 	db 4
 	db 28, KINGLER
 	db 18, KRABBY
 	db 18, GOLDEEN
 	db 18, MAGIKARP
 
-.Group8:
+.Group8: ; cinnabar, seafoam, routes 19, 20, 21
 	db 4
 	db 33, SEADRA
 	db 28, HORSEA
 	db 28, SHELLDER
 	db 33, SEAKING
 
-.Group9:
+.Group9: ; cerulean cave, route 23 (victory road)
 	db 4
 	db 41, DRATINI
 	db 47, GYARADOS
 	db 45, KINGLER
 	db 43, SEADRA
 
-.Group10:
+.Group10: ; fuchsia
 	db 4
 	db 15, POLIWAG
 	db 15, KRABBY
