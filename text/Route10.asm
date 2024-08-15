@@ -1,18 +1,23 @@
 _Route10SuperNerd1BattleText::
-	text "Wow, are you a"
-	line "#MANIAC too?"
-	cont "Want to see my"
-	cont "collection?"
+	text "I heard there are"
+	line "KANGASKHAN here."
+	cont "Have you been able"
+	cont "to find one?"
 	done
 
 _Route10SuperNerd1EndBattleText::
-	text "Humph."
-	line "I'm not angry!"
+	text "I guess not."
+	line "Seems like they're"
+	cont "all gone."
 	prompt
 
 _Route10SuperNerd1AfterBattleText::
-	text "I have more rare"
-	line "#MON at home!"
+	text "They said the"
+	line "POWER PLANT was"
+	cont "pollution-free,"
+	cont "but the same"
+	cont "#MON aren't"
+	cont "here anymore."
 	done
 
 _Route10Hiker1BattleText::
