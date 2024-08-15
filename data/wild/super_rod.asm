@@ -69,7 +69,7 @@ SuperRodData:
 	db 4
 	db 29, DRATINI
 	db 28, GYARADOS
-	db 30, HORSEA
+	db 30, SEEL
 	db 27, LAPRAS
 
 .Group7: ; routes 12, 13, 17, 18
