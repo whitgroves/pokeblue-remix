@@ -10,8 +10,8 @@ _PokemonMansion1FScientistEndBattleText::
 
 _PokemonMansion1FScientistAfterBattleText::
 	text "A key? I don't"
-	line "know what you're"
-	cont "talking about."
+	line "think you should"
+	cont "looking for that."
 	done
 
 _PokemonMansion1FSwitchText::

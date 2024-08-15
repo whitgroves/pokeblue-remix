@@ -1,7 +1,7 @@
 _PokemonMansion2FSuperNerdBattleText::
 	text "I can't get out!"
 	line "This old place is"
-	cont "one big puzzle!"
+	cont "haunted!"
 	done
 
 _PokemonMansion2FSuperNerdEndBattleText::

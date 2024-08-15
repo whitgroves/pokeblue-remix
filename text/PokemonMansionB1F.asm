@@ -8,24 +8,26 @@ _PokemonMansionB1FBurglarEndBattleText::
 	prompt
 
 _PokemonMansionB1FBurglarAfterBattleText::
-	text "You can find stuff"
-	line "lying around."
+	text "It's no good."
+	line "Everything here"
+	cont "is destroyed."
 	done
 
 _PokemonMansionB1FScientistBattleText::
-	text "This place is"
-	line "ideal for a lab."
+	text "This place used"
+	line "to be a lab."
 	done
 
 _PokemonMansionB1FScientistEndBattleText::
-	text "What"
-	line "was that for?"
+	text "What are you"
+	line "looking for here?"
 	prompt
 
 _PokemonMansionB1FScientistAfterBattleText::
-	text "I like it here!"
-	line "It's conducive to"
-	cont "my studies!"
+	text "You should leave."
+	line "There's nothing"
+	cont "here but failed"
+	cont "experiments..."
 	done
 
 _PokemonMansionB1FDiaryText::
@@ -33,7 +35,7 @@ _PokemonMansionB1FDiaryText::
 	line "MEWTWO is far too"
 	cont "powerful."
 
-	para "We have failed to"
-	line "curb its vicious"
-	cont "tendencies..."
+	para "It freed the other"
+	line "research subjects"
+	cont "and fled North..."
 	done

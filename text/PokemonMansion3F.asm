@@ -1,6 +1,6 @@
 _PokemonMansion3FSuperNerdBattleText::
-	text "This place is"
-	line "like, huge!"
+	text "What happened"
+	line "to this place?"
 	done
 
 _PokemonMansion3FSuperNerdEndBattleText::
@@ -13,25 +13,27 @@ _PokemonMansion3FSuperNerdAfterBattleText::
 	done
 
 _PokemonMansion3FScientistBattleText::
-	text "My mentor once"
-	line "lived here."
+	text "A great tragedy"
+	line "happened here."
 	done
 
 _PokemonMansion3FScientistEndBattleText::
-	text "Whew!"
-	line "Overwhelming!"
+	text "If you can..."
+	line "Try checking out"
+	cont "the basement."
 	prompt
 
 _PokemonMansion3FScientistAfterBattleText::
-	text "So, you're stuck?"
-	line "Try jumping off"
-	cont "over there!"
+	text "Are you stuck?"
+	line "Try jumping down"
+	cont "over there."
 	done
 
 _PokemonMansion3FDiaryText::
 	text "Diary: Feb. 6"
-	line "MEW gave birth."
+	line "Our latest clone"
+	cont "has stabilized."
 
-	para "We named the"
-	line "newborn MEWTWO."
+	para "We named this"
+	line "one MEWTWO."
 	done
