@@ -1,14 +1,15 @@
 _Route10SuperNerd1BattleText::
 	text "I heard there are"
 	line "KANGASKHAN here."
-	cont "Have you been able"
-	cont "to find one?"
+	cont "Have you been"
+	cont "able to find one?"
 	done
 
 _Route10SuperNerd1EndBattleText::
-	text "I guess not."
-	line "Seems like they're"
-	cont "all gone."
+	text "Hm."
+	line "I guess not."
+	cont "It seems like"
+	cont "they're all gone."
 	prompt
 
 _Route10SuperNerd1AfterBattleText::

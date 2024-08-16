@@ -35,7 +35,7 @@ _PokemonMansionB1FDiaryText::
 	line "MEWTWO is far too"
 	cont "powerful."
 
-	para "It freed the other"
+	para "It freed all the"
 	line "research subjects"
 	cont "and fled North..."
 	done
