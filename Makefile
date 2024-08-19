@@ -40,7 +40,7 @@ RGBLINK ?= $(RGBDS)rgblink
 .SECONDEXPANSION:
 .PRECIOUS:
 .SECONDARY:
-.PHONY: blue debug patch clean tidy compare tools moves test release
+.PHONY: blue debug patch clean tidy compare tools easy matchups moves remix test release
 
 blue:	pokeblue.gbc
 debug: 	pokeblue_debug.gbc
@@ -52,7 +52,7 @@ clean: tidy
 	        -o -iname '*.2bpp' \
 	        -o -iname '*.pic' \) \
 	     -delete
-	$(RM) moves.csv
+	$(RM) moves.csv type_matchups.csv
 
 tidy:
 	$(RM) $(roms) \
@@ -76,13 +76,17 @@ compare: $(roms) $(patches)
 tools:
 	$(MAKE) -C tools/
 
-#types:
+easy: matchups moves
 
-remix:
-	python3 tools/moves.py -i moves.csv -o data/moves/
+matchups:
+	python3 tools/matchups.py -i data/types/type_matchups.asm
 
 moves:
 	python3 tools/moves.py -i data/moves/moves.asm
+
+remix:
+	python3 tools/matchups.py -i type_matchups.csv -o data/types/
+	python3 tools/moves.py -i moves.csv -o data/moves/
 
 test: blue
 	mgba-qt pokeblue.gbc
