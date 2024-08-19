@@ -40,7 +40,7 @@ RGBLINK ?= $(RGBDS)rgblink
 .SECONDEXPANSION:
 .PRECIOUS:
 .SECONDARY:
-.PHONY: blue debug patch clean tidy compare tools test release
+.PHONY: blue debug patch clean tidy compare tools moves test release
 
 blue:	pokeblue.gbc
 debug: 	pokeblue_debug.gbc
@@ -52,6 +52,7 @@ clean: tidy
 	        -o -iname '*.2bpp' \
 	        -o -iname '*.pic' \) \
 	     -delete
+	$(RM) moves.csv
 
 tidy:
 	$(RM) $(roms) \
@@ -74,6 +75,14 @@ compare: $(roms) $(patches)
 
 tools:
 	$(MAKE) -C tools/
+
+#types:
+
+remix:
+	python3 tools/moves.py -i moves.csv -o data/moves/
+
+moves:
+	python3 tools/moves.py -i data/moves/moves.asm
 
 test: blue
 	mgba-qt pokeblue.gbc
@@ -106,7 +115,7 @@ $(info $(shell $(MAKE) -C tools))
 # The dep rules have to be explicit or else missing files won't be reported.
 # As a side effect, they're evaluated immediately instead of when the rule is invoked.
 # It doesn't look like $(shell) can be deferred so there might not be a better way.
-preinclude_deps := includes.asm $(shell tools/scan_includes includes.asm)
+preinclude_deps := includes.asm $(shell tools/scan_includes includes.asm) remix
 define DEP
 $1: $2 $$(shell tools/scan_includes $2) $(preinclude_deps) | rgbdscheck.o
 	$$(RGBASM) $$(RGBASMFLAGS) -o $$@ $$<
