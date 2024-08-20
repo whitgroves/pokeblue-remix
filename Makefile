@@ -53,6 +53,7 @@ clean: tidy
 	        -o -iname '*.pic' \) \
 	     -delete
 	$(RM) moves.csv type_matchups.csv
+	find . -name '.~lock.*.csv#' -delete
 
 tidy:
 	$(RM) $(roms) \
