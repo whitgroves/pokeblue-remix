@@ -23,15 +23,31 @@ _JumpMoveEffect:
 
 INCLUDE "data/moves/effects_pointers.asm"
 
+SleepSideEffect:
+	call CheckTargetSubstitute
+	ret nz
+	ld de, wEnemyMonStatus
+	ldh a, [hWhoseTurn]
+	and a
+	jp z, .sleepSideEffect
+	ld de, wBattleMonStatus
+.sleepSideEffect
+	ld a, [de]
+	and a
+	ret nz ; can't sleep a mon that is already statused
+	call BattleRandom
+	cp 20 percent + 1 ; 20% chance to sleep
+	ret nc ; bail on side effect miss; otherwise continue to SleepEffect
 SleepEffect:
 	ld de, wEnemyMonStatus
 	ld bc, wEnemyBattleStatus2
+	ld hl, wPlayerMoveEffect
 	ldh a, [hWhoseTurn]
 	and a
 	jp z, .sleepEffect
 	ld de, wBattleMonStatus
 	ld bc, wPlayerBattleStatus2
-
+	ld hl, wEnemyMoveEffect
 .sleepEffect
 	ld a, [bc]
 	bit NEEDS_TO_RECHARGE, a ; does the target need to recharge? (hyper beam)
@@ -41,7 +57,7 @@ SleepEffect:
 	                        ; including the event where the target already has another status
 	ld a, [de]
 	ld b, a
-	and $7
+	and SLP_MASK
 	jr z, .notAlreadySleeping ; can't affect a mon that is already asleep
 	ld hl, AlreadyAsleepText
 	jp PrintText
@@ -50,7 +66,9 @@ SleepEffect:
 	and a
 	jr nz, .didntAffect ; can't affect a mon that is already statused
 	push de
-	call MoveHitTest ; apply accuracy tests
+	push hl
+	call MoveHitTest ; apply accuracy tests (overwrites GPRs, hence push/pop)
+	pop hl
 	pop de
 	ld a, [wMoveMissed]
 	and a
@@ -58,10 +76,12 @@ SleepEffect:
 .setSleepCounter
 ; set target's sleep counter to a random number between 1 and 7
 	call BattleRandom
-	and $7
+	and $7 ; TODO -> lower to 4, then inc a for 1-5 turns w/o loop
 	jr z, .setSleepCounter
 	ld [de], a
-	call PlayCurrentMoveAnimation2
+	ld a, [hl]; don't (re)play animation for side effect
+	cp SLEEP_SIDE_EFFECT
+	call nz, PlayCurrentMoveAnimation2
 	ld hl, FellAsleepText
 	jp PrintText
 .didntAffect
@@ -1341,7 +1361,7 @@ DisableEffect:
 .playerTurnNotLinkBattle
 ; non-link battle enemies have unlimited PP so the previous checks aren't needed
 	call BattleRandom
-	and $7
+	and $7 ; TODO -> lower to 4
 	inc a ; 1-8 turns disabled
 	inc c ; move 1-4 will be disabled
 	swap c
