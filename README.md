@@ -10,7 +10,7 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
 - Updated interactions for the original 15 types ✓
 - Updated typing to make certain Pokemon lore-friendly, interesting, or unique ✓
 - Updated learnsets to better fit each Pokemon's kit ~
-- Updated typing, power, accuracy, and effects to make certain moves more viable or less frustrating ~
+- [Several changes to the movepool](./MOVES.md), including:
     - All 95% accurate moves are now 100% accurate ✓
     - Signature moves or moves used mainly by a certain type are now that type ~
     - All trapping moves (e.g., *Wrap, Fire Spin*) to damaging moves with a secondary status effect ✓
@@ -31,22 +31,22 @@ While *Red Remix* does roll off the tongue, Pokemon Blue was the first Pokemon g
 Again, Blue was the game I made memories with, plus I didn't want to lock up a party slot.
 
 ## The Power Is Yours
-While working on this I developed 2 tools, [matchups.py](./tools/matchups.py) and [moves.py](./tools/moves.py), to convert type matchups and move data from assembly to csv and back again for easier editing of the type chart and movepool.
+While working on this I developed 2 tools, **matchups.py** and **moves.py**, to convert type matchups and move data from assembly to csv and back again for easier editing of the type chart and movepool.
 
 These should be compatible with any gen 1 disassembly and only rely on the python3 standard library, so feel free to use them in your own project.
 
 #### Example 1
-To make changes for another repo, copy the individual files, then call:
+To make changes for another repo, copy [matchups.py](./tools/matchups.py) and [moves.py](./tools/moves.py) into your project, then call:
 ```
-$ python3 tools/matchups.py -i <path to type_matchups.asm>
-$ python3 tools/moves.py -i <path to moves.asm>
+$ python3 matchups.py -i <path to type_matchups.asm>
+$ python3 moves.py -i <path to moves.asm>
 ```
 Which whill generate **type_matchups.csv** and **moves.csv**, respectively.
 
 Edit these files, then run:
 ```
-$ python3 tools/matchups.py -i type_matchups.csv
-$ python3 tools/moves.py -i moves.csv
+$ python3 matchups.py -i type_matchups.csv
+$ python3 moves.py -i moves.csv
 ```
 To generate updated copies of **type_matchups.asm** and **moves.asm**.
 

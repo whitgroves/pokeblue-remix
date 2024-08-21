@@ -1,0 +1,55 @@
+# Move Changes
+In order to mix things up, enable certain signature moves to work better with new mon typings (e.g., Bone Club), or just make certain moves make sense to me personally, several changes have been made to the movepool.
+
+- The following moves have had their types changed:
+    - Karate Chop (Normal -> Fighting)
+    - Comet Punch (Normal -> Fighting)
+    - Mega Punch (Normal -> Fighting)
+    - Vicegrip (Normal -> Bug)
+    - Guillotine (Normal -> Fighting)
+    - Razor Wind (Normal -> Flying)
+    - Cut (Normal -> Bug)
+    - Gust (Normal -> Flying) *NOTE: Because of this, Bulbasaur has a hard early game before Brock*
+    - Whirlwind (Normal -> Flying)
+    - Slam (Normal -> Dragon)
+    - Mega Kick (Normal -> Fighting)
+    - Fury Attack (Normal -> Flying)
+    - Bite (Normal -> Dragon)
+    - Hyper Beam (Normal -> Dragon)
+    - Strength (Normal -> Fighting)
+    - Growth (Normal -> Grass)
+    - Hypnosis (Psychic -> Ghost)
+    - Agility (Psychic -> Normal)
+    - Bone Club (Ground -> Rock)
+    - Swift (Normal -> Dragon)
+    - Dream Eater (Psychic -> Ghost)
+    - Dizzy Punch (Normal -> Psychic)
+    - Flash (Normal -> Electric)
+    - Bonemerang (Ground -> Rock)
+    - Struggle (Normal -> "Typeless")
+- The following moves are now 100% accurate (ignoring the 1/256 ~~glitch~~ feature):
+    - Cut
+    - Fly
+    - Jump Kick
+    - Tackle
+    - Wrap
+    - Razor Leaf
+    - String Shot
+    - Fire Spin
+    - Rock Throw
+    - Bone Club
+- The following moves have had their base power changed:
+    - Wing Attack (35 -> 60)
+    - Bind (15 -> 50)
+    - Fire Spin  (15 -> 65)
+    - Dig (100 -> 60)
+    - Night Shade (*Damage Equal To User's Level* -> 60)
+    - Clamp (35 -> 50)
+    - Constrict (10 -> 35)
+- The following moves have had their effects changed:
+    - Bind (Trapping Move -> Always Lowers Speed On Hit)
+    - Wrap (Trapping Move -> 33% Chance To Lower Speed)
+    - Fire Spin (Trapping Move -> 33% Chance To Lower Attack)
+    - Night Shade (Deals Damage Equal To user's Level -> 20% Chance To Sleep)
+    - Clamp (Trapping Move -> 33% Chance To Lower Speed)
+    - Dizzy Punch (*No Side Effect* -> 10% Chance To Confuse)
