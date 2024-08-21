@@ -77,7 +77,7 @@ compare: $(roms) $(patches)
 tools:
 	$(MAKE) -C tools/
 
-easy: matchups moves
+edits: matchups moves
 
 matchups:
 	python3 tools/matchups.py -i data/types/type_matchups.asm

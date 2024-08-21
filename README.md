@@ -16,6 +16,7 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
     - All trapping moves (e.g., *Wrap, Fire Spin*) to damaging moves with a secondary status effect ✓
     - Struggle ~~, Self-Destruct, and Explosion are all~~ is "None"-type (read: Bird-type) ✓
     - Certain special moves are treated as physical (e.g., *Crabhammer, Thunderpunch*) ~
+    - *Night Shade* has 60 base power and a 20% chance to inflict sleep ✓
 - The Ghost type is special instead of physical ✓
 - All 151 Pokemon are available on a single save ✓
 - The good rod is good and the super rod is super ✓
@@ -32,7 +33,7 @@ Again, Blue was the game I made memories with, plus I didn't want to lock up a p
 ## The Power Is Yours
 While working on this I developed 2 tools, [matchups.py](./tools/matchups.py) and [moves.py](./tools/moves.py), to convert type matchups and move data from assembly to csv and back again for easier editing of the type chart and movepool.
 
-These should be compatible with any gen 1 disassemblyand only rely on the python3 standard library, so feel free to use these in your own project.
+These should be compatible with any gen 1 disassembly and only rely on the python3 standard library, so feel free to use them in your own project.
 
 #### Example 1
 To make changes for another repo, copy the individual files, then call:
@@ -59,7 +60,7 @@ And either:
 ```
 $ make matchups moves
 - OR -
-$ make easy
+$ make edits
 ```
 To generate the csv files and make your edits, then run:
 ```
