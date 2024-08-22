@@ -12,7 +12,7 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
 - Updated learnsets to better fit each Pokemon's kit ~
 - [Several changes to the movepool](./MOVES.md), including:
     - All 95% accurate moves are now 100% accurate ✓
-    - Signature moves or moves used mainly by a certain type are now that type ~
+    - Signature moves or moves used mainly by a certain type are now that type ✓
     - Trapping moves (e.g., *Wrap*, *Fire Spin*) no longer trap but have a chance to drop stats ✓
     - Struggle ~~, Self-Destruct, and Explosion are all~~ is Typeless (read: Bird-type) ✓
     - *Punch* moves, *Clamp*, *Waterfall*, and *Crabhammer* are treated as physical ✓
