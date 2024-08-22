@@ -53,3 +53,11 @@ In order to mix things up, enable certain signature moves to work better with ne
     - Night Shade (Deals Damage Equal To user's Level -> 20% Chance To Sleep)
     - Clamp (Trapping Move -> 33% Chance To Lower Speed)
     - Dizzy Punch (*No Side Effect* -> 10% Chance To Confuse)
+- The following special moves are always treated as physical:
+    - Fire Punch
+    - Ice Punch
+    - Thunderpunch
+    - Clamp
+    - Waterfall
+    - Dizzy Punch
+    - Crabhammer

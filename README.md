@@ -13,9 +13,9 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
 - [Several changes to the movepool](./MOVES.md), including:
     - All 95% accurate moves are now 100% accurate ✓
     - Signature moves or moves used mainly by a certain type are now that type ~
-    - All trapping moves (e.g., *Wrap, Fire Spin*) to damaging moves with a secondary status effect ✓
-    - Struggle ~~, Self-Destruct, and Explosion are all~~ is "None"-type (read: Bird-type) ✓
-    - Certain special moves are treated as physical (e.g., *Crabhammer, Thunderpunch*) ~
+    - Trapping moves (e.g., *Wrap*, *Fire Spin*) no longer trap but have a chance to drop stats ✓
+    - Struggle ~~, Self-Destruct, and Explosion are all~~ is Typeless (read: Bird-type) ✓
+    - *Punch* moves, *Clamp*, *Waterfall*, and *Crabhammer* are treated as physical ✓
     - *Night Shade* has 60 base power and a 20% chance to inflict sleep ✓
 - The Ghost type is special instead of physical ✓
 - All 151 Pokemon are available on a single save ✓

@@ -4152,6 +4152,8 @@ IgnoredOrdersText:
 	text_far _IgnoredOrdersText
 	text_end
 
+INCLUDE "data/battle/always_physical_moves.asm"
+
 ; sets b, c, d, and e for the CalculateDamage routine in the case of an attack by the player mon
 GetDamageVarsForPlayerAttack:
 	xor a
@@ -4165,7 +4167,19 @@ GetDamageVarsForPlayerAttack:
 	ret z ; return if move power is zero
 	ld a, [hl] ; a = [wPlayerMoveType]
 	cp SPECIAL ; types >= SPECIAL are all special
-	jr nc, .specialAttack
+	jr nc, .isSpecialMoveAlwaysPhysical
+	jr .physicalAttack
+.isSpecialMoveAlwaysPhysical
+	ld a, [wPlayerMoveNum]
+	ld b, a
+	ld hl, AlwaysPhysicalMoves
+.checkAlwaysPhysicalLoop
+	ld a, [hli]
+	cp b
+	jr z, .physicalAttack
+	cp $ff ; end of list
+	jr nz, .checkAlwaysPhysicalLoop
+	jr .specialAttack
 .physicalAttack
 	ld hl, wEnemyMonDefense
 	ld a, [hli]
@@ -4278,7 +4292,19 @@ GetDamageVarsForEnemyAttack:
 	ret z ; return if move power is zero
 	ld a, [hl] ; a = [wEnemyMoveType]
 	cp SPECIAL ; types >= SPECIAL are all special
-	jr nc, .specialAttack
+	jr nc, .isSpecialMoveAlwaysPhysical
+	jr .physicalAttack
+.isSpecialMoveAlwaysPhysical
+	ld a, [wEnemyMoveNum]
+	ld b, a
+	ld hl, AlwaysPhysicalMoves
+.checkAlwaysPhysicalLoop
+	ld a, [hli]
+	cp b
+	jr z, .physicalAttack
+	cp $ff ; end of list
+	jr nz, .checkAlwaysPhysicalLoop
+	jr .specialAttack
 .physicalAttack
 	ld hl, wBattleMonDefense
 	ld a, [hli]
