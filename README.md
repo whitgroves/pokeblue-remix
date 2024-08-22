@@ -24,6 +24,8 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
 - Auto-sort the backpack by pressing Start
 - The "Down + B" trick actually works
 
+These changes are largely untested, so if you try out the hack and run into any issues, please reach out on X: [@whitgroves](https://x.com/whitgroves)
+
 ## Why *Blue* Remix?
 While *Red Remix* does roll off the tongue, Pokemon Blue was the first Pokemon game I played and the first video game I bought for myself, so I chose that name for nostalgia's sake.
 
