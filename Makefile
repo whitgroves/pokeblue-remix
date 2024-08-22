@@ -34,6 +34,8 @@ RGBFIX  ?= $(RGBDS)rgbfix
 RGBGFX  ?= $(RGBDS)rgbgfx
 RGBLINK ?= $(RGBDS)rgblink
 
+EMU ?= mgba-qt # update for your personal setup <<<------!!!
+
 ### Build targets
 
 .SUFFIXES:
@@ -77,20 +79,14 @@ compare: $(roms) $(patches)
 tools:
 	$(MAKE) -C tools/
 
-edits: matchups moves
+edits:
+	python3 tools/easy_edit.py -e --all
 
-matchups:
-	python3 tools/matchups.py -i data/types/type_matchups.asm
-
-moves:
-	python3 tools/moves.py -i data/moves/moves.asm
-
-remix:
-	python3 tools/matchups.py -i type_matchups.csv -o data/types/
-	python3 tools/moves.py -i moves.csv -o data/moves/
+updates:
+	python3 tools/easy_edit.py -u --all
 
 test: blue
-	mgba-qt pokeblue.gbc
+	$(EMU) pokeblue.gbc
 
 release: blue
 	mv pokeblue.gbc 'Pokemon - Blue Remix.gbc'
@@ -120,7 +116,7 @@ $(info $(shell $(MAKE) -C tools))
 # The dep rules have to be explicit or else missing files won't be reported.
 # As a side effect, they're evaluated immediately instead of when the rule is invoked.
 # It doesn't look like $(shell) can be deferred so there might not be a better way.
-preinclude_deps := includes.asm $(shell tools/scan_includes includes.asm) remix
+preinclude_deps := includes.asm $(shell tools/scan_includes includes.asm) updates
 define DEP
 $1: $2 $$(shell tools/scan_includes $2) $(preinclude_deps) | rgbdscheck.o
 	$$(RGBASM) $$(RGBASMFLAGS) -o $$@ $$<

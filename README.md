@@ -24,7 +24,7 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
 - Auto-sort the backpack by pressing Start
 - The "Down + B" trick actually works
 
-These changes are largely untested, so if you try out the hack and run into any issues, please reach out on X: [@whitgroves](https://x.com/whitgroves)
+These changes are largely untested, so if you run into issues please reach out on X: [@whitgroves](https://x.com/whitgroves)
 
 ## Why *Blue* Remix?
 While *Red Remix* does roll off the tongue, Pokemon Blue was the first Pokemon game I played and the first video game I bought for myself, so I chose that name for nostalgia's sake.
@@ -33,43 +33,43 @@ While *Red Remix* does roll off the tongue, Pokemon Blue was the first Pokemon g
 Again, Blue was the game I made memories with, plus I didn't want to lock up a party slot.
 
 ## The Power Is Yours
-While working on this I developed 2 tools, **matchups.py** and **moves.py**, to convert type matchups and move data from assembly to csv and back again for easier editing of the type chart and movepool.
+While working on this I developed a script, **easy_edit.py**, to convert type matchups and move data from assembly to csv and back again for easier editing of the type chart and movepool.
 
-These should be compatible with any gen 1 disassembly and only rely on the python3 standard library, so feel free to use them in your own project.
+It should be compatible with any gen 1 disassembly and only relies on the python3 standard library, so feel free to use it for your own projects.
 
-#### Example 1
-To make changes for another repo, copy [matchups.py](./tools/matchups.py) and [moves.py](./tools/moves.py) into your project, then call:
+### Example 1
+To make changes for another repo, copy [easy_edit.py](./tools/easy_edit.py) into your project, then call:
 ```
-$ python3 matchups.py -i <path to type_matchups.asm>
-$ python3 moves.py -i <path to moves.asm>
+$ easy_edit.py -e --matchups
+$ easy_edit.py -e --moves
+$ easy_edit.py -e --all
 ```
-Which whill generate **type_matchups.csv** and **moves.csv**, respectively.
+To generate **type_matchups.csv**, **moves.csv**, or both.
 
-Edit these files, then run:
+Next, edit your csv files, then run:
 ```
-$ python3 matchups.py -i type_matchups.csv
-$ python3 moves.py -i moves.csv
+$ easy_edit.py -u --matchups
+$ easy_edit.py -u --moves
+$ easy_edit.py -u --all
 ```
-To generate updated copies of **type_matchups.asm** and **moves.asm**.
+To overwrite **type_matchups.asm** and/or **moves.asm** with your updated csv file(s).
 
 ### Example 2
 To make changes to this build using `make`:
 ```
 $ git clone https://github.com/whitgroves/pokeblue-remix.git
 $ cd pokeblue-remix
-```
-And either:
-```
-$ make matchups moves
-- OR -
 $ make edits
+<< update csv files as desired >>
+$ make updates
 ```
-To generate the csv files and make your edits, then run:
+
+### Disclaimer
+
+Please note that this script is not "smart", so values in the csv like move effects or type names (except for "PSYCHIC", which is auto-converted to/from "PSYCHIC_TYPE") must match the assembly code (case-insensitive).
+
+Also, consider making a backup of the original values before updating so you can rollback changes:
 ```
-$ make remix
+$ easy_edit.py -e --all
+$ mv moves.csv moves_old.csv && mv type_matchups.csv type_matchups_old.csv
 ```
-To update the assembly files, or just:
-```
-$ make
-```
-To build the entire project.
