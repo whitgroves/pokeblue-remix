@@ -23,7 +23,7 @@ Moves:
 	move SCRATCH,      NO_ADDITIONAL_EFFECT,        40, NORMAL,       100, 35
 	move VICEGRIP,     NO_ADDITIONAL_EFFECT,        55, FIGHTING,     100, 30
 	move GUILLOTINE,   OHKO_EFFECT,                  1, FIGHTING,      30,  5
-	move RAZOR_WIND,   CHARGE_EFFECT,               80, FLYING,        75, 10
+	move RAZOR_WIND,   FLINCH_SIDE_EFFECT2,         80, FLYING,       100, 10
 	move SWORDS_DANCE, ATTACK_UP2_EFFECT,            0, NORMAL,       100, 30
 	move CUT,          NO_ADDITIONAL_EFFECT,        50, BUG,          100, 30
 	move GUST,         NO_ADDITIONAL_EFFECT,        40, FLYING,       100, 35
@@ -140,7 +140,7 @@ Moves:
 	move WATERFALL,    NO_ADDITIONAL_EFFECT,        80, WATER,        100, 15
 	move CLAMP,        SPEED_DOWN1_EFFECT,          50, WATER,         75, 10
 	move SWIFT,        SWIFT_EFFECT,                60, NORMAL,       100, 20
-	move SKULL_BASH,   CHARGE_EFFECT,              100, NORMAL,       100, 15
+	move SKULL_BASH,   FLINCH_SIDE_EFFECT2,        100, ROCK,         100, 15
 	move SPIKE_CANNON, TWO_TO_FIVE_ATTACKS_EFFECT,  20, NORMAL,       100, 15
 	move CONSTRICT,    SPEED_DOWN_SIDE_EFFECT,      35, NORMAL,       100, 35
 	move AMNESIA,      SPECIAL_UP2_EFFECT,           0, PSYCHIC_TYPE, 100, 20

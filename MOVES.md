@@ -21,12 +21,14 @@ In order to mix things up, enable certain signature moves to work better with ne
     - Hypnosis (Psychic -> Ghost)
     - Agility (Psychic -> Normal)
     - Bone Club (Ground -> Rock)
+    - Skull Bash (Normal -> Rock)
     - Dream Eater (Psychic -> Ghost)
     - Dizzy Punch (Normal -> Psychic)
     - Flash (Normal -> Psychic)
     - Bonemerang (Ground -> Rock)
     - Struggle (Normal -> "Typeless")
 - The following moves are now 100% accurate (ignoring the 1/256 ~~glitch~~ feature):
+    - Razor Wind
     - Cut
     - Fly
     - Jump Kick
@@ -46,11 +48,13 @@ In order to mix things up, enable certain signature moves to work better with ne
     - Clamp (35 -> 50)
     - Constrict (10 -> 35)
 - The following moves have had their effects changed:
+    - Razor Wind -> (Charging Move -> 30% Chance To Flinch)
     - Bind (Trapping Move -> Always Lowers Speed On Hit)
     - Wrap (Trapping Move -> 33% Chance To Lower Speed)
     - Fire Spin (Trapping Move -> 33% Chance To Lower Attack)
     - Night Shade (Deals Damage Equal To user's Level -> 20% Chance To Sleep)
     - Clamp (Trapping Move -> 33% Chance To Lower Speed)
+    - Skull Bash (Charging Move -> 30% Chance To Flinch)
     - Dizzy Punch (*No Side Effect* -> 10% Chance To Confuse)
 - The following special moves are always treated as physical:
     - Fire Punch
