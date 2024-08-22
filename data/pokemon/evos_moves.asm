@@ -395,6 +395,7 @@ CuboneEvosMoves:
 	db 38, THRASH
 	db 43, BONEMERANG
 	db 46, RAGE
+	db 50, SKULL_BASH
 	db 0
 
 RhyhornEvosMoves:
@@ -1683,6 +1684,7 @@ MarowakEvosMoves:
 	db 41, THRASH
 	db 48, BONEMERANG
 	db 55, RAGE
+	db 59, SKULL_BASH
 	db 0
 
 MissingNo92EvosMoves:
