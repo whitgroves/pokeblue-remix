@@ -48,9 +48,24 @@ CeladonMansion3FGameDesignerText:
 	text_far _CeladonMansion3FGameDesignerCompletedDexText
 	text_promptbutton
 	text_asm
+	ld a, [wStatusFlags5]
+	bit BIT_GOT_MEW, a
+	jr nz, .giveDiploma
+.giveMew
+	lb bc, MEW, 30
+	call GivePokemon
+	jr nc, .allDone
+	ld hl, wStatusFlags5
+	set BIT_GOT_MEW, [hl]
+	ld a, [wSimulatedJoypadStatesEnd]
+	and a
+	call z, WaitForTextScrollButtonPress
+.giveDiploma
 	callfar DisplayDiploma
 	ld a, TRUE
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	jr .allDone
+.allDone
 	jp TextScriptEnd
 
 CeladonMansion3FGameProgramPCText:
