@@ -145,7 +145,7 @@ if __name__ == '__main__':
     if not ARGS.csv_dir.exists(): error = "CSV data either dosen't exist or wasn't found. Update --csv-dir and try again."
     if not ARGS.data_dir.exists(): error = "Game data either doesn't exist or wasn't found. Update --data-dir and try again."
     if not ARGS.export and not ARGS.update: error = "No operation selected. Set --export or --update and try again."
-    if not ARGS.all and not ARGS.matchups and not ARGS.moves: error = "No data category selected. Set --macthups or --moves and try again."
+    if not any([ARGS.all, ARGS.matchups, ARGS.moves]): error = "No data category selected. Set --macthups or --moves and try again."
     if error:
         safe_print(f'easyedit.py: {error} (Use -h to see options)')
         exit(1)
