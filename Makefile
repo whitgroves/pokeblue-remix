@@ -34,7 +34,9 @@ RGBFIX  ?= $(RGBDS)rgbfix
 RGBGFX  ?= $(RGBDS)rgbgfx
 RGBLINK ?= $(RGBDS)rgblink
 
-EMU ?= mgba-qt # update for your personal setup <<<------!!!
+# update for your personal setup <<<-----!!!
+PY ?= python3
+EMU ?= mgba-qt
 
 ### Build targets
 
@@ -42,7 +44,7 @@ EMU ?= mgba-qt # update for your personal setup <<<------!!!
 .SECONDEXPANSION:
 .PRECIOUS:
 .SECONDARY:
-.PHONY: blue debug patch clean tidy compare tools easy matchups moves remix test release
+.PHONY: blue debug patch clean tidy compare tools edits updates test release
 
 blue:	pokeblue.gbc
 debug: 	pokeblue_debug.gbc
@@ -57,12 +59,12 @@ clean: tidy
 	$(RM) moves.csv type_matchups.csv
 	find . -name '.~lock.*.csv#' -delete
 
+# TODO: add back post-dev: $(roms:.gbc=.sav)
 tidy:
 	$(RM) $(roms) \
 	      $(roms:.gbc=.sym) \
 	      $(roms:.gbc=.map) \
-		  $(roms:.gbc=.sav) \
-	      $(patches) \
+		  $(patches) \
 	      $(patches:.patch=_vc.gbc) \
 	      $(patches:.patch=_vc.sym) \
 	      $(patches:.patch=_vc.map) \
@@ -80,10 +82,10 @@ tools:
 	$(MAKE) -C tools/
 
 edits:
-	python3 tools/easy_edit.py -e --all
+	$(PY) tools/easy_edit.py -e --all
 
 updates:
-	python3 tools/easy_edit.py -u --all
+	$(PY) tools/easy_edit.py -u --all
 
 test: blue
 	$(EMU) pokeblue.gbc
@@ -161,6 +163,7 @@ gfx/intro/gengar.2bpp: tools/gfx += --remove-duplicates --preserve=0x19,0x76
 
 gfx/credits/the_end.2bpp: tools/gfx += --interleave --png=$<
 
+# TODO: merge/cleanup
 # gfx/slots/red_slots_1.2bpp: tools/gfx += --trim-whitespace
 gfx/slots/blue_slots_1.2bpp: tools/gfx += --trim-whitespace
 
