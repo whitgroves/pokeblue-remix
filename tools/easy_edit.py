@@ -18,7 +18,7 @@ parser.add_argument('-u', '--update', action='store_true', help="When set, updat
 parser.add_argument('-q', '--quiet', action='store_true', help="If set, will not print import/export status to the cmd.")
 parser.add_argument('--matchups', action='store_true', help="Set to import/export type_matchups.asm.")
 parser.add_argument('--moves', action='store_true', help="Set to import/export moves.asm.")
-parser.add_argument('--mon', type=str, help="Set to export the base stats and learnset of a specific pokemon. Name should exclude punctuation or spaces.")
+parser.add_argument('--mon', type=str, help="Set to export the base stats and level_moves of a specific pokemon. Name should exclude punctuation or spaces.")
 parser.add_argument('--all', action='store_true', help="Set to import/export all applicable game files.")
 ARGS, _ = parser.parse_known_args()
 
@@ -27,8 +27,18 @@ ARGS, _ = parser.parse_known_args()
 # Update to support custon types. Except for Psychic, these must appear exactly as they are written in the game's code, and the csv order must match.
 types = ['NORMAL', 'FIRE', 'WATER', 'ELECTRIC', 'GRASS', 'ICE', 'FIGHTING', 'POISON', 'GROUND', 'FLYING', 'PSYCHIC', 'BUG', 'ROCK', 'GHOST', 'DRAGON']
 
-# Mon data is always must always be in the same order due to the game's code, so we can use a static list of labels to export/update, assuming the csv file matches these values.
-mon_data_labels = ['DEX ID POINTER', 'BASE STATS (HP, ATK, DEF, SPD, SPC)', 'TYPE(S)', 'CATCH RATE (X/255)', 'BASE EXP YIELD', 'SPRITE FILE, DIMENSIONS', 'SPRITE POINTERS', 'LEVEL 1 MOVES', 'GROWTH RATE']
+# Mon data is strictly ordered, so we can use a static list of csv headers and reference by index. Labels are split export and rejoined on import.
+mon_data_labels = [
+    'DEX ID,<<-- usually DEX_<MON> but raw number (ex: 25) works', 
+    'HP,ATK,DEF,SPD,SPC,<<--base stats (0-255)',
+    'TYPE 1,TYPE 2,<<-- enter same type twice for monotype (ex: NORMAL NORMAL)',
+    'CATCH RATE (X/255)',
+    'BASE EXP (0-255)',
+    'SPRITE FILE,DIM 1,DIM 2',
+    'FRONT SPRITE,BACK SPRITE,<<-- usually <Mon>PicFront/Back',
+    'LEVEL 1 MOVES,<<-- for empty slot add NO_MOVE',
+    'GROWTH RATE,<<-- see constants/pokemon_data_constants.asm',
+] 
 
 # Helper Functions
 
@@ -155,7 +165,7 @@ def export_mon() -> None: # exports <ARGS.mon>.asm and evos_moves.asm (partial) 
     indir = ARGS.data_dir.joinpath('pokemon')
     mon_data = {} # each row is [<mon_data_label>, <data(1)>, <data(2)>, ..., <data(N)>]
     label_index = 0 # see mon_data_labels
-    mon_data['TM/HM MOVES'] = [] # multi-row edge case, excluded from mon_data_labels since they're always at the end
+    tm_hm_moves = [] # multi-row edge case, excluded from mon_data_labels since they're always at the end
     with indir.joinpath('base_stats', f'{ARGS.mon}.asm').open() as infile:
         for line in infile.readlines():
             data = line.split(';')[0].strip()
@@ -163,9 +173,9 @@ def export_mon() -> None: # exports <ARGS.mon>.asm and evos_moves.asm (partial) 
             if label_index < len(mon_data_labels):
                 mon_data[mon_data_labels[label_index]] = data.split(' ', maxsplit=1)[-1].strip().split(',')
                 label_index += 1
-            elif 'db 0' not in data: mon_data['TM/HM MOVES'].extend([move.strip() for move in data.split('tmhm')[-1].strip().split(',') if '\\' not in move])
-    mon_data['EVOLUTION'] = [] # excluded in code for mons that don't evolve, but included here for consistent formatting
-    mon_data['LEVEL UP MOVES'] = [] # these and evolution are pulled from a single file for all mons
+            elif 'db 0' not in data: tm_hm_moves.extend([move.strip() for move in data.split('tmhm')[-1].strip().split(',') if '\\' not in move])
+    evo_data = [] # excluded in code for mons that don't evolve, but included here for consistent formatting
+    level_moves = [] # level up learnset and evolution are pulled from a single file (evos_moves.asm) for all mons
     with indir.joinpath('evos_moves.asm').open() as infile:
         mon_header = ('MrMime' if ARGS.mon == 'mrmime' else ARGS.mon[0].upper() + ARGS.mon[1:].lower()) + 'EvosMoves:'
         mon_found = False
@@ -177,16 +187,22 @@ def export_mon() -> None: # exports <ARGS.mon>.asm and evos_moves.asm (partial) 
                 continue # skip header
             if not data or not mon_found or 'db 0' in data: continue
             data = [d.strip() for d in data.split('db', maxsplit=1)[-1].split(',')]
-            if len(data) > 2: mon_data['EVOLUTION'] = data # evolution, if present, is either 3 or 4 items
-            else: mon_data['LEVEL UP MOVES'].append(data) # note this is specifically a nested list to include learn level
+            if len(data) > 2: evo_data = data # evolution, if present, is either 3 or 4 items
+            else: level_moves.append(data) # note this is specifically a nested list to include learn level
     with Path(f'{ARGS.mon}.csv').relative_to(ARGS.csv_dir).open('w') as outfile:
         writer = csv.writer(outfile, delimiter=',')
-        writer.writerow(['LABEL', 'DATA-->>'])
-        for label in mon_data_labels:
-            writer.writerow([label, *mon_data[label]])
-        writer.writerow(['EVOLUTION', *mon_data['EVOLUTION']])
-        for move in mon_data['LEVEL UP MOVES']: writer.writerow(['MOVE (LEVEL)', *move])
-        for move in mon_data['TM/HM MOVES']: writer.writerow(['MOVE (TM/HM)', move])
+        for label in mon_data_labels: 
+            writer.writerow(label.split(','))
+            writer.writerow([d.strip() for d in mon_data[label]])
+            writer.writerow([]) # readability
+        writer.writerow(['EVO DATA', '<<-- see data/pokemon/evos_moves.asm'])
+        writer.writerow(evo_data)
+        writer.writerow([]) # readability
+        writer.writerow(['LEVEL UP MOVE', 'LEVEL LEARNED', '<<-- max 8. !!order matters!!'])
+        for level, move in level_moves: writer.writerow([move, level])
+        writer.writerow([]) # readability
+        writer.writerow(['TM/HM MOVES', '<<-- see constants/move_constants.asm'])
+        for move in tm_hm_moves: writer.writerow([move])
     safe_print(f'Exporting {ARGS.mon}.asm and evos_moves.asm to {ARGS.mon}.csv...Done.')
 
 def update_mon() -> None: # imports <ARGS.mon>.csv to <ARGS.mon>.asm and does in-place update of evos_moves.asm
