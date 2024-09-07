@@ -33,7 +33,7 @@ While *Red Remix* does roll off the tongue, Pokemon Blue was the first Pokemon g
 Again, Blue was the game I made memories with, plus I didn't want to lock up a party slot.
 
 ## The Power Is Yours
-While working on this I developed a script, **easy_edit.py**, to convert type matchups and move data from assembly to csv and back again for easier editing of the type chart and movepool.
+While working on this I developed a script, **easy_edit.py**, to convert type, move, and pokemon data from assembly to csv and back again for easier editing.
 
 It should be compatible with any gen 1 disassembly and only relies on the python3 standard library, so feel free to use it for your own projects.
 
@@ -42,17 +42,17 @@ To make changes for another repo, copy [easy_edit.py](./tools/easy_edit.py) into
 ```
 $ easy_edit.py -e --matchups
 $ easy_edit.py -e --moves
+$ easy_edit.py -e --mon <pokemon name, all lowercase, no spaces>
 $ easy_edit.py -e --all
 ```
-To generate **type_matchups.csv**, **moves.csv**, or both.
-
-Next, edit your csv files, then run:
+To generate your csv files for editing, then run:
 ```
 $ easy_edit.py -u --matchups
 $ easy_edit.py -u --moves
+$ easy_edit.py -u --mon <pokemon name, all lowercase, no spaces>
 $ easy_edit.py -u --all
 ```
-To overwrite **type_matchups.asm** and/or **moves.asm** with your updated csv file(s).
+To overwrite the game's assembly files with any of those updates.
 
 ### Example 2
 To make changes to this build using `make`:
@@ -66,10 +66,10 @@ $ make updates
 
 ### Disclaimer
 
-Please note that this script is not "smart", so values in the csv like move effects or type names (except for "PSYCHIC", which is auto-converted to/from "PSYCHIC_TYPE") must match the assembly code (case-insensitive).
+Please note that this script is not "smart", so values in the csv (except for "PSYCHIC", which is an edge case) must match the assembly code (case-insensitive).
 
 Also, consider making a backup of the original values before updating so you can rollback changes:
 ```
 $ easy_edit.py -e --all
-$ mv moves.csv moves_old.csv && mv type_matchups.csv type_matchups_old.csv
+$ mv moves.csv moves_old.csv && mv type_matchups.csv type_matchups.old.csv
 ```
