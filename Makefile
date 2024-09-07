@@ -34,9 +34,12 @@ RGBFIX  ?= $(RGBDS)rgbfix
 RGBGFX  ?= $(RGBDS)rgbgfx
 RGBLINK ?= $(RGBDS)rgblink
 
-# update for your personal setup <<<-----!!!
+# Update for your personal setup <<<-----!!!
 PY ?= python3
 EMU ?= mgba-qt
+
+# Where to save/load csv files for easy_edit
+EASY ?= .edits
 
 ### Build targets
 
@@ -56,8 +59,8 @@ clean: tidy
 	        -o -iname '*.2bpp' \
 	        -o -iname '*.pic' \) \
 	     -delete
-	$(RM) moves.csv type_matchups.csv
-	find . -name '.~lock.*.csv#' -delete
+	find $(EASY) -name '*.csv' -delete
+	find $(EASY) -name '.~lock.*.csv#' -delete
 
 # TODO: add back post-dev: $(roms:.gbc=.sav)
 tidy:
@@ -82,10 +85,10 @@ tools:
 	$(MAKE) -C tools/
 
 edits:
-	$(PY) tools/easy_edit.py -e --all
+	$(PY) tools/easy_edit.py -e -c $(EASY) --all
 
 updates:
-	$(PY) tools/easy_edit.py -u --all
+	$(PY) tools/easy_edit.py -u -c $(EASY) --all
 
 test: blue
 	$(EMU) pokeblue.gbc
