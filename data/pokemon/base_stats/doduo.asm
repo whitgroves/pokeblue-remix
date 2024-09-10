@@ -3,7 +3,7 @@
 	db  35,  85,  45,  75,  35
 	;   hp  atk  def  spd  spc
 
-	db GROUND, FLYING ; type
+	db NORMAL, FLYING ; type
 	db 190 ; catch rate
 	db 96 ; base exp
 
@@ -16,8 +16,8 @@
 	; tm/hm learnset
 	tmhm WHIRLWIND,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
 	     RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SKULL_BASH,   SKY_ATTACK,   REST,         TRI_ATTACK,   SUBSTITUTE,   \
-	     FLY
+	     SKULL_BASH,   EARTHQUAKE,   REST,         TRI_ATTACK,   SUBSTITUTE,   \
+	     STRENGTH
 	; end
 
 	db 0 ; padding

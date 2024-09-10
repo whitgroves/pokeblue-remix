@@ -9,7 +9,7 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
 ## Changes (✓ = done, ~ = in progress)
 - Updated interactions for the original 15 types ✓
 - Updated typing to make certain Pokemon lore-friendly, interesting, or unique ✓
-- Updated learnsets to better fit each Pokemon's kit ~
+- Updated learnsets to better fit each Pokemon's kit ✓
 - [Several changes to the movepool](./MOVES.md), including:
     - All 95% accurate moves are now 100% accurate ✓
     - Signature moves or moves used mainly by a certain type are now that type ✓

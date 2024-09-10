@@ -322,14 +322,16 @@ def update_mon() -> None: # imports <ARGS.mon>.csv to <ARGS.mon>.asm and does in
 # Showtime
 
 if __name__ == '__main__':
-    error = None
-    if ARGS.update and not ARGS.csv_dir.exists(): error = "CSV data either dosen't exist or wasn't found. Update --csv-dir and try again."
+    error = None  
     if not ARGS.data_dir.exists(): error = "Game data either doesn't exist or wasn't found. Update --data-dir and try again."
     if not ARGS.export and not ARGS.update: error = "No operation selected. Set --export or --update and try again."
     if not any([ARGS.all, ARGS.matchups, ARGS.moves, ARGS.mon]): error = "No data category selected. Set --macthups, --moves, or --mon and try again."
     if error:
-        safe_print(f'easyedit.py: {error} (Use -h to see options)')
+        safe_print(f'{error} (Use -h to see options)')
         exit(1)
+    if ARGS.update and not ARGS.csv_dir.exists():
+        safe_print("CSV data either dosen't exist or wasn't found. Skipping updates.") # soft fail so make works w/ no edits
+        exit()
     os.makedirs(ARGS.csv_dir, exist_ok=True)
     if ARGS.all or ARGS.matchups:
        if ARGS.export: export_matchups()
