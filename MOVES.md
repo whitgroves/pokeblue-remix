@@ -42,6 +42,7 @@ In order to mix things up, enable certain signature moves to work better with ne
 - The following moves have had their base power changed:
     - Wing Attack (35 -> 60)
     - Bind (15 -> 50)
+    - Dragon Rage (*40 damage* -> 65)
     - Fire Spin  (15 -> 65)
     - Dig (100 -> 60)
     - Night Shade (*Damage Equal To User's Level* -> 60)
@@ -51,9 +52,11 @@ In order to mix things up, enable certain signature moves to work better with ne
     - Razor Wind -> (Charging Move -> 30% Chance To Flinch)
     - Bind (Trapping Move -> Always Lowers Speed On Hit)
     - Wrap (Trapping Move -> 33% Chance To Lower Speed)
+    - Dragon Rage (Deals 40 Damage -> 33% Chance To Lower Special)
     - Fire Spin (Trapping Move -> 33% Chance To Lower Attack)
     - Night Shade (Deals Damage Equal To user's Level -> 20% Chance To Sleep)
-    - Clamp (Trapping Move -> 33% Chance To Lower Speed)
+    - Lick (10% Chance To Paralyze -> Restores Half Of Damage Dealt)
+    - Clamp (Trapping Move -> 33% Chance To Lower Defense)
     - Skull Bash (Charging Move -> 30% Chance To Flinch)
     - Dizzy Punch (*No Side Effect* -> 10% Chance To Confuse)
 - The following special moves are always treated as physical:

@@ -759,7 +759,7 @@ DrowzeeEvosMoves:
 	db 24, HEADBUTT
 	db 29, NIGHT_SHADE
 	db 32, PSYCHIC_M
-	db 37, MEDITATE
+	db 37, DREAM_EATER
 	db 0
 
 GolemEvosMoves:
@@ -1575,7 +1575,7 @@ HypnoEvosMoves:
 	db 24, HEADBUTT
 	db 33, NIGHT_SHADE
 	db 37, PSYCHIC_M
-	db 43, MEDITATE
+	db 43, DREAM_EATER
 	db 0
 
 GolbatEvosMoves:
