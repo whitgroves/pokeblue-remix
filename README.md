@@ -17,6 +17,7 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
     - Struggle ~~, Self-Destruct, and Explosion are all~~ is Typeless (read: Bird-type) ✓
     - *Punch* moves, *Clamp*, *Waterfall*, and *Crabhammer* are treated as physical ✓
     - *Night Shade* has 60 base power and a 20% chance to inflict sleep ✓
+- TM's 04, 37, and 41 now teach *Flamethrower*, *Sludge*, and *Twineedle*, respectively ✓
 - The Ghost type is special instead of physical ✓
 - All 151 Pokemon are available on a single save ✓
 - The good rod is good and the super rod is super ✓

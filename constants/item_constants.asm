@@ -160,7 +160,7 @@ DEF TM01 EQU const_value
 	add_tm MEGA_PUNCH   ; $C9
 	add_tm RAZOR_WIND   ; $CA
 	add_tm SWORDS_DANCE ; $CB
-	add_tm WHIRLWIND    ; $CC
+	add_tm FLAMETHROWER ; $CC --> (formerly WHIRLWIND)
 	add_tm MEGA_KICK    ; $CD
 	add_tm TOXIC        ; $CE
 	add_tm HORN_DRILL   ; $CF
@@ -193,16 +193,16 @@ DEF TM01 EQU const_value
 	add_tm BIDE         ; $EA
 	add_tm METRONOME    ; $EB
 	add_tm SELFDESTRUCT ; $EC
-	add_tm EGG_BOMB     ; $ED
+	add_tm SLUDGE	    ; $ED (formerly EGG_BOMB)
 	add_tm FIRE_BLAST   ; $EE
 	add_tm SWIFT        ; $EF
 	add_tm SKULL_BASH   ; $F0
-	add_tm SOFTBOILED   ; $F1
+	add_tm TWINEEDLE    ; $F1 (formerly SOFTBOILED)
 	add_tm DREAM_EATER  ; $F2
 	add_tm SKY_ATTACK   ; $F3
 	add_tm REST         ; $F4
 	add_tm THUNDER_WAVE ; $F5
-	add_tm PSYWAVE      ; $F6
+	add_tm PSYBEAM      ; $F6
 	add_tm EXPLOSION    ; $F7
 	add_tm ROCK_SLIDE   ; $F8
 	add_tm TRI_ATTACK   ; $F9

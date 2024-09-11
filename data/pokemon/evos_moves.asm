@@ -291,7 +291,7 @@ SlowbroEvosMoves:
 	db 18, DISABLE
 	db 22, HEADBUTT
 	db 27, GROWL
-	db 33, WATER_GUN
+	db 33, ACID
 	db 37, WITHDRAW
 	db 44, AMNESIA
 	db 55, PSYCHIC_M
@@ -316,6 +316,7 @@ ExeggutorEvosMoves:
 	db 0
 ; Learnset
 	db 28, STOMP
+	db 32, EGG_BOMB
 	db 0
 
 LickitungEvosMoves:
@@ -336,11 +337,12 @@ ExeggcuteEvosMoves:
 	db 0
 ; Learnset
 	db 25, REFLECT
-	db 28, LEECH_SEED
+	db 28, EGG_BOMB
 	db 32, STUN_SPORE
 	db 37, POISONPOWDER
 	db 42, SOLARBEAM
 	db 48, SLEEP_POWDER
+	db 50, SOFTBOILED
 	db 0
 
 GrimerEvosMoves:
@@ -621,7 +623,7 @@ SlowpokeEvosMoves:
 	db 18, DISABLE
 	db 22, HEADBUTT
 	db 27, GROWL
-	db 33, WATER_GUN
+	db 33, ACID
 	db 40, AMNESIA
 	db 48, PSYCHIC_M
 	db 0
@@ -658,7 +660,8 @@ ChanseyEvosMoves:
 ; Learnset
 	db 12, DOUBLESLAP
 	db 24, SING
-	db 30, GROWL
+	db 30, EGG_BOMB
+	db 36, SOFTBOILED
 	db 38, MINIMIZE
 	db 44, DEFENSE_CURL
 	db 48, LIGHT_SCREEN
@@ -686,6 +689,7 @@ MrMimeEvosMoves:
 	db 31, DOUBLESLAP
 	db 39, MEDITATE
 	db 47, SUBSTITUTE
+	db 52, PSYCHIC_M
 	db 0
 
 HitmonleeEvosMoves:
@@ -753,7 +757,7 @@ DrowzeeEvosMoves:
 	db 12, DISABLE
 	db 17, CONFUSION
 	db 24, HEADBUTT
-	db 29, POISON_GAS
+	db 29, NIGHT_SHADE
 	db 32, PSYCHIC_M
 	db 37, MEDITATE
 	db 0
@@ -990,10 +994,10 @@ JynxEvosMoves:
 	db 0
 ; Learnset
 	db 18, LICK
-	db 23, DOUBLESLAP
+	db 23, LOVELY_KISS
 	db 31, ICE_PUNCH
-	db 39, BODY_SLAM
-	db 47, THRASH
+	db 39, NIGHT_SHADE
+	db 47, DREAM_EATER
 	db 58, BLIZZARD
 	db 0
 
@@ -1003,7 +1007,8 @@ MoltresEvosMoves:
 ; Learnset
 	db 51, LEER
 	db 55, AGILITY
-	db 60, SKY_ATTACK
+	db 60, FLAMETHROWER
+	db 67, SKY_ATTACK
 	db 0
 
 ArticunoEvosMoves:
@@ -1396,8 +1401,8 @@ PoliwrathEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 16, HYPNOSIS
-	db 19, WATER_GUN
+	db 27, KARATE_CHOP
+	db 30, SUBMISSION
 	db 0
 
 WeedleEvosMoves:
@@ -1568,7 +1573,7 @@ HypnoEvosMoves:
 	db 12, DISABLE
 	db 17, CONFUSION
 	db 24, HEADBUTT
-	db 33, POISON_GAS
+	db 33, NIGHT_SHADE
 	db 37, PSYCHIC_M
 	db 43, MEDITATE
 	db 0
@@ -1783,6 +1788,8 @@ StarmieEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
+	db 42, LIGHT_SCREEN
+	db 47, PSYCHIC_M
 	db 0
 
 BulbasaurEvosMoves:
