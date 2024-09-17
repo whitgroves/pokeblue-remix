@@ -164,7 +164,7 @@ ItemUseBall:
 	jp .captured
 
 .notOldManBattle
-; If the player is fighting the ghost Marowak, set the value that indicates the
+; If the player is fighting the restless soul, set the value that indicates the
 ; Pokémon can't be caught and skip the capture calculations.
 	ld a, [wCurMap]
 	cp POKEMON_TOWER_6F
@@ -196,7 +196,7 @@ ItemUseBall:
 
 ; Anything will do for the basic Poké Ball.
 	cp POKE_BALL
-	jr z, .checkForAilments
+	jr z, .checkDownB
 
 ; If it's a Great/Ultra/Safari Ball and Rand1 is greater than 200, try again.
 	ld a, 200
@@ -206,12 +206,21 @@ ItemUseBall:
 ; Less than or equal to 200 is good enough for a Great Ball.
 	ld a, [hl]
 	cp GREAT_BALL
-	jr z, .checkForAilments
+	jr z, .checkDownB
 
 ; If it's an Ultra/Safari Ball and Rand1 is greater than 150, try again.
 	ld a, 150
 	cp b
 	jr c, .loop
+
+; Just like they said on the playground.
+.checkDownB
+	ld a, [hJoyHeld]
+	and B_BUTTON
+	jr z, .checkForAilments
+	and D_DOWN
+	jr z, .checkForAilments
+	sra b ; if both pressed, cut Rand1 in half
 
 .checkForAilments
 ; Pokémon can be caught more easily with a status ailment.
