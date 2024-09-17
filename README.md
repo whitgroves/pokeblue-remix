@@ -22,7 +22,7 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
 - All 151 Pokemon are available on a single save ✓
 - The good rod is good and the super rod is super ✓
 - Fast text speed and Set battles by default ✓
-- Auto-sort the backpack by pressing Start
+- Auto-sort the backpack by pressing Start (thanks to [devolov](https://github.com/pret/pokered/wiki/Add-Item-Sorting-In-Bag)) ✓
 - The "Down + B" trick actually works
 
 These changes are largely untested, so if you run into issues please reach out on X: [@whitgroves](https://x.com/whitgroves)
