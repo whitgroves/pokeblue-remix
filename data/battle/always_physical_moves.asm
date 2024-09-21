@@ -6,4 +6,5 @@ AlwaysPhysicalMoves:
     db WATERFALL
     db DIZZY_PUNCH
     db CRABHAMMER
+    db BITE
     db -1 ; end

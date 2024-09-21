@@ -11,18 +11,14 @@ In order to mix things up, enable certain signature moves to work better with ne
     - Cut (Normal -> Bug)
     - Gust (Normal -> Flying) *NOTE: Because of this, Bulbasaur has a hard early game before Brock*
     - Whirlwind (Normal -> Flying)
-    - Slam (Normal -> Dragon)
     - Mega Kick (Normal -> Fighting)
-    - Fury Attack (Normal -> Flying)
     - Bite (Normal -> Dragon)
     - Hyper Beam (Normal -> Dragon)
     - Strength (Normal -> Fighting)
     - Growth (Normal -> Grass)
-    - Hypnosis (Psychic -> Ghost)
     - Agility (Psychic -> Normal)
     - Bone Club (Ground -> Rock)
     - Skull Bash (Normal -> Rock)
-    - Dream Eater (Psychic -> Ghost)
     - Dizzy Punch (Normal -> Psychic)
     - Flash (Normal -> Psychic)
     - Bonemerang (Ground -> Rock)
@@ -67,3 +63,4 @@ In order to mix things up, enable certain signature moves to work better with ne
     - Waterfall
     - Dizzy Punch
     - Crabhammer
+    - Bite
