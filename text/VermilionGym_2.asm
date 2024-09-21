@@ -70,8 +70,8 @@ _VermilionGymGentlemanAfterBattleText::
 	text "The door won't"
 	line "open?"
 
-	para "LT.SURGE always"
-	line "was cautious!"
+	para "Have you double-"
+	line "checked it?"
 	done
 
 _VermilionGymSuperNerdBattleText::
@@ -87,9 +87,9 @@ _VermilionGymSuperNerdEndBattleText::
 _VermilionGymSuperNerdAfterBattleText::
 	text "OK, I'll talk!"
 
-	para "LT.SURGE said he"
-	line "hid door switches"
-	cont "inside something!"
+	para "LT.SURGE has a"
+	line "PSYCHIC #MON"
+	cont "on his team!"
 	done
 
 _VermilionGymSailorBattleText::
@@ -103,14 +103,12 @@ _VermilionGymSailorEndBattleText::
 	prompt
 
 _VermilionGymSailorAfterBattleText::
-	text "LT.SURGE set up"
-	line "double locks!"
-	cont "Here's a hint!"
+	text "LT.SURGE used to"
+	line "use double locks,"
 
-	para "When you open the"
-	line "1st lock, the 2nd"
-	cont "lock is right"
-	cont "next to it!"
+	para "But now his"
+	line "RAICHU can detect"
+	cont "intruders!"
 	done
 
 _VermilionGymGymGuideChampInMakingText::
@@ -132,11 +130,11 @@ _VermilionGymGymGuideChampInMakingText::
 	cont "paralysis too!"
 
 	para "LT.SURGE is very"
-	line "cautious!"
+	line "quick!"
 
 	para "You'll have to"
-	line "break a code to"
-	cont "get to him!"
+	line "use GROUND moves"
+	cont "to beat him!"
 	done
 
 _VermilionGymGymGuideBeatLTSurgeText::

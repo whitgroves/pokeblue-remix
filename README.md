@@ -8,16 +8,17 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
 
 ## Changes (✓ = done, ~ = in progress)
 - Updated interactions for the original 15 types ✓
-- Updated typing to make certain Pokemon lore-friendly, interesting, or unique ✓
+- Updated typings to make certain Pokemon lore-friendly, interesting, or unique ✓
 - Updated learnsets to better fit each Pokemon's kit ✓
 - Several changes to the movepool, detailed [here](./MOVES.md) ✓
 - TM's 04, 37, and 41 now teach *Twineedle*, *Sludge*, and *Flamethrower*, respectively ✓
 - Updated TMs at the Celadon mart, including the girl on the roof ✓
 - The Ghost type is special instead of physical ✓
 - All 151 Pokemon are available on a single save ✓
-- The good rod is good and the super rod is super ✓
 - Fast text speed and Set battles by default ✓
 - Auto-sort the backpack by pressing Start (thanks to [devolov](https://github.com/pret/pokered/wiki/Add-Item-Sorting-In-Bag)) ✓
+- The good rod is good and the super rod is super ✓
+- Trashed the Vermilion trash can puzzle ✓
 - The "Down + B" trick actually works ✓
 
 These changes are largely untested, so if you run into issues please reach out on X: [@whitgroves](https://x.com/whitgroves)

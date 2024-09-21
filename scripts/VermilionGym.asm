@@ -28,10 +28,10 @@ VermilionGym_Script:
 	db "LT.SURGE@"
 
 VermilionGymSetDoorTile:
-	CheckEvent EVENT_2ND_LOCK_OPENED
-	jr nz, .doorsOpen
-	ld a, $24 ; double door tile ID
-	jr .replaceTile
+	;CheckEvent EVENT_2ND_LOCK_OPENED
+	;jr nz, .doorsOpen
+	;ld a, $24 ; double door tile ID
+	;jr .replaceTile
 .doorsOpen
 	ld a, SFX_GO_INSIDE
 	call PlaySound
