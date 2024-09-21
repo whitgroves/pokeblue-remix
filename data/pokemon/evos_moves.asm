@@ -432,6 +432,8 @@ ArcanineEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
+	db 30, TAKE_DOWN
+	db 39, AGILITY
 	db 0
 
 MewEvosMoves:
@@ -1687,6 +1689,8 @@ ClefableEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
+	db 31, METRONOME
+	db 48, LIGHT_SCREEN
 	db 0
 
 WeezingEvosMoves:
