@@ -239,5 +239,5 @@ _SortComplete::
 	prompt
 
 _NothingToSort::
-	text "The bag is empty!"
+	text "Already done!"
 	prompt
