@@ -85,40 +85,40 @@ CeladonMartRoofScript_GiveDrinkToGirl:
 	cp SODA_POP
 	jr z, .gaveSodaPop
 ; gave Lemonade
-	CheckEvent EVENT_GOT_TM49
-	jr nz, .alreadyGaveDrink
 	ld hl, CeladonMartRoofLittleGirlYayLemonadeText
 	call PrintText
 	call RemoveItemByIDBank12
-	lb bc, TM_TRI_ATTACK, 1
+	lb bc, TM_THUNDERBOLT, 1
 	call GiveItem
 	jr nc, .bagFull
+	CheckEvent EVENT_GOT_TM49
+	jr nz, .done
 	ld hl, CeladonMartRoofLittleGirlReceivedTM49Text
 	call PrintText
 	SetEvent EVENT_GOT_TM49
 	ret
 .gaveSodaPop
-	CheckEvent EVENT_GOT_TM48
-	jr nz, .alreadyGaveDrink
 	ld hl, CeladonMartRoofLittleGirlYaySodaPopText
 	call PrintText
 	call RemoveItemByIDBank12
-	lb bc, TM_ROCK_SLIDE, 1
+	lb bc, TM_FLAMETHROWER, 1
 	call GiveItem
 	jr nc, .bagFull
+	CheckEvent EVENT_GOT_TM48
+	jr nz, .done
 	ld hl, CeladonMartRoofLittleGirlReceivedTM48Text
 	call PrintText
 	SetEvent EVENT_GOT_TM48
 	ret
 .gaveFreshWater
-	CheckEvent EVENT_GOT_TM13
-	jr nz, .alreadyGaveDrink
 	ld hl, CeladonMartRoofLittleGirlYayFreshWaterText
 	call PrintText
 	call RemoveItemByIDBank12
 	lb bc, TM_ICE_BEAM, 1
 	call GiveItem
 	jr nc, .bagFull
+	CheckEvent EVENT_GOT_TM13
+	jr nz, .done
 	ld hl, CeladonMartRoofLittleGirlReceivedTM13Text
 	call PrintText
 	SetEvent EVENT_GOT_TM13
@@ -129,6 +129,8 @@ CeladonMartRoofScript_GiveDrinkToGirl:
 .alreadyGaveDrink
 	ld hl, CeladonMartRoofLittleGirlImNotThirstyText
 	jp PrintText
+.done
+	ret
 
 RemoveItemByIDBank12:
 	farjp RemoveItemByID

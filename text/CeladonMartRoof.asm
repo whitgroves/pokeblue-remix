@@ -57,9 +57,9 @@ _CeladonMartRoofLittleGirlTM48ExplanationText::
 	para "@"
 	text_ram wStringBuffer
 	text " contains"
-	line "ROCK SLIDE!"
+	line "FLAMETHROWER!" ; formerly rock slide
 
-	para "It can spook the"
+	para "It can burn the"
 	line "target sometimes!@"
 	text_end
 
@@ -83,7 +83,7 @@ _CeladonMartRoofLittleGirlTM49ExplanationText::
 	text_start
 
 	para "TM49 contains"
-	line "TRI ATTACK!@"
+	line "THUNDERBOLT!@" ; formerly tri attack
 	text_end
 
 _CeladonMartRoofLittleGirlNoRoomText::
