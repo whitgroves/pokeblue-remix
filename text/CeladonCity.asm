@@ -48,10 +48,10 @@ _CeladonCityGramps3ReceivedTM41Text::
 
 _CeladonCityGramps3TM41ExplanationText::
 	text "TM41 teaches"
-	line "TWINEEDLE!"
+	line "FLAMETHROWER!"
 
-	para "Bug #MON"
-	line "use it best!"
+	para "Use it against"
+	line "BUGs and GHOSTs!"
 	done
 
 _CeladonCityGramps3TM41NoRoomText::

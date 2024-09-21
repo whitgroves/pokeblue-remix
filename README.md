@@ -11,7 +11,7 @@ However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](ht
 - Updated typing to make certain Pokemon lore-friendly, interesting, or unique ✓
 - Updated learnsets to better fit each Pokemon's kit ✓
 - Several changes to the movepool, detailed [here](./MOVES.md) ✓
-- TM's 04, 37, and 41 now teach *Flamethrower*, *Sludge*, and *Twineedle*, respectively ✓
+- TM's 04, 37, and 41 now teach *Twineedle*, *Sludge*, and *Flamethrower*, respectively ✓
 - Updated TMs at the Celadon mart, including the girl on the roof ✓
 - The Ghost type is special instead of physical ✓
 - All 151 Pokemon are available on a single save ✓
