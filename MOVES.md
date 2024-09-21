@@ -19,6 +19,7 @@ In order to mix things up, enable certain signature moves to work better with ne
     - Agility (Psychic -> Normal)
     - Bone Club (Ground -> Rock)
     - Skull Bash (Normal -> Rock)
+    - Spike Cannon (Normal -> Rock)
     - Dizzy Punch (Normal -> Psychic)
     - Flash (Normal -> Psychic)
     - Bonemerang (Ground -> Rock)
