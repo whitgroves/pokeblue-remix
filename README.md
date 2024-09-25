@@ -6,11 +6,11 @@ The goal is not to reproduce or backport YL, but to see what gen 1 would feel li
 
 However, some changes from Yellow, the Legacy hacks, and the [pret tutorials](https://github.com/pret/pokered/wiki/Tutorials) are duplicated here, such as the Nidos getting *Double Kick* early, making *Cut* Bug-type, and auto-sorting the items in the backpack.
 
-## Changes (✓ = done, ~ = in progress)
+## Changes (Revision 1.3)
 - Updated interactions for the original 15 types ✓
 - Updated typings to make certain Pokemon lore-friendly, interesting, or unique ✓
 - Updated learnsets to better fit each Pokemon's kit ✓
-- Several changes to the movepool, detailed [here](./MOVES.md) ✓
+- Several updates to the movepool, detailed [here](./MOVES.md) ✓
 - TM's 04, 37, and 41 now teach *Twineedle*, *Sludge*, and *Flamethrower*, respectively ✓
 - Updated TMs at the Celadon mart, including the girl on the roof ✓
 - The Ghost type is special instead of physical ✓
@@ -67,6 +67,6 @@ Please note that this script is not "smart", so values in the csv (except for "P
 
 Also, consider making a backup of the original values before updating so you can rollback changes:
 ```
-$ easy_edit.py -e --all
-$ mv moves.csv moves_old.csv && mv type_matchups.csv type_matchups.old.csv
+$ easy_edit.py -e --all -c .edits
+$ cp -r .edits .backups
 ```
